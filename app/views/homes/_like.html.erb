@@ -1,0 +1,3 @@
+<%= form_tag({ action: 'ilike', id: row[:key] }, method: 'put', class: 'ilike') do %>
+  <%= check_box_tag(:decision, nil, !!session[Fizzbuzz.format(row[:key])], id: Fizzbuzz.format(row[:key])) %>
+<% end %>

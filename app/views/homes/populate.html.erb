@@ -1,0 +1,5 @@
+<h1>FizzBuzz Populate with Pagination Page</h1>
+<p>Total <b><%= @rows.total_count %></b> FizzBuzz numbers.</p>
+<%= paginate @rows %>
+<BR />
+<%= render 'table' %>

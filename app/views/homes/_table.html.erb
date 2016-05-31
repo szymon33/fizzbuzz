@@ -1,0 +1,19 @@
+<table>
+  <% @rows.each do |row| %>
+    <tr>
+      <td><%= row[:key] %></td>
+      <td><%= row[:value] %></td>
+      <td><%= render 'like', row: row %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= content_for(:after_footer) do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("form.ilike input[type='checkbox']").change(function(){
+        $(this).closest('form').submit();
+      });
+    });
+  </script>
+<% end %>
