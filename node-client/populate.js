@@ -1,6 +1,6 @@
 var request = require("request");
 
-var arg_host = function() {
+var arg_host = (function() {
   var result = null;
   if (process.argv.length > 2) {
     var match = process.argv[2].match(/host=([\w\:\/\.\?\&\=]+)/);
@@ -8,7 +8,7 @@ var arg_host = function() {
     if (match) { result = match[1]; }
   }
   return(result);
-}();
+})();
 
 // arg_host = "http://api.example.com:3000/populate?page=4&perpage=5&total=20";
 
@@ -21,7 +21,7 @@ if (arg_host) {
       });
     } else {
       console.log('Ups! Something want wrong.')
-    };
+    }
   });
 } else {
   console.log("Usage: node populate host='http://api.example.com:3000/populate?page=4&perpage=5&total=20'");

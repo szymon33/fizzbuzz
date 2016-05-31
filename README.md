@@ -1,4 +1,6 @@
 # Challenging old, good FizzBuzz
+[![Code Climate](https://codeclimate.com/github/szymon33/fizzbuzz/badges/gpa.svg)](https://codeclimate.com/github/szymon33/fizzbuzz)
+[![Test Coverage](https://codeclimate.com/github/szymon33/fizzbuzz/badges/coverage.svg)](https://codeclimate.com/github/szymon33/fizzbuzz/coverage)
 
 This is just yet another example FizzBuzz program **but** as a Rails web application together with JSON API and console client to consume the FizzBuzz application API. Very basic functionality.
 
@@ -20,13 +22,14 @@ This is just yet another example FizzBuzz program **but** as a Rails web applica
 * Create a client to consume the FizzBuzz application API
 * Should be available from the command line
 
+
 ## Implementation requirements
 
 * Ruby version 2.1 or higher.
 * Rails version 4.2.
-* No database, no ActiveRecord
+* No database, no ActiveRecord.
 * Webrick web server but you can comment it out in the [gemfile](Gemfile) and use what is up to your preferences.
-* No authentication (not required)
+* No authentication (not required).
 
 
 ## Installation
@@ -65,13 +68,16 @@ There are just two pages:
 
 You can setup parameters like this:
 
-http://localhost:3000/populate?total=300&perpage=20&page=2
+```console
+  http://localhost:3000/populate?total=300&perpage=20&page=2
+```
 
 Above will produce 300 FizzBuzz numbers and display 20 of them from 21 to 40 (page 2).
 
 Watch video to see how it is actually working:
 
 [![Task presentation](http://img.youtube.com/vi/YgZH3bGb608/0.jpg)](http://www.youtube.com/watch?v=YgZH3bGb608)
+
 
 ## Checking JSON API with cURL
 
@@ -94,12 +100,13 @@ You might inspect how I play with [cURL](https://en.wikipedia.org/wiki/CURL) in 
 
 I use [Rspec](http://rspec.info/) for tests. Both JSON API and web application were developed facing [TDD](https://en.wikipedia.org/wiki/Test-driven_development) approach. You could see Code Climate status as a badge on very top of this file proves 100% coverage.
 
+
 ## Client to consume the FizzBuzz application API
 
-It is a javascript with Node.js implementation. After you install ```npm``` and ```node.js``` you have to install:
+It is a javascript with Node.js implementation. After you install ```npm``` and ```node.js``` you have to install [Request - Simplified HTTP client](https://github.com/request/request):
 
   ```console
-  npm node request
+  npm install request
   ```
 
 I wrote [populate.js](node-client/populate.js) programs.
