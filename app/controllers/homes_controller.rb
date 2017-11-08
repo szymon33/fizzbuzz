@@ -1,5 +1,4 @@
 class HomesController < ApplicationController
-  before_filter :get_key, only: :ilike
   before_filter :store_page_params, only: :populate
   before_filter :restore_page_params, only: :ilike
 
@@ -16,7 +15,7 @@ class HomesController < ApplicationController
 
   def ilike
     decision = params['decision'].present? ? params['decision'] : nil
-    session[Fizzbuzz.format(@key)] = decision
+    session[Fizzbuzz.format(key)] = decision
     redirect_to url_for(
       action: 'populate',
       total: @total,
@@ -27,8 +26,8 @@ class HomesController < ApplicationController
 
   private
 
-  def get_key
-    @key = params[:id]
+  def key
+    @key ||= params[:id]
   end
 
   def store_page_params
